@@ -1,9 +1,7 @@
 # TencentVideo-LeTV-HTML5Play
 腾讯视频、乐视视频HTML5播放脚本，无广告看视频，安心省电，Mac电脑用户请忽略
+
 <br><br>
-
-
-
 
 ### 使用截图 ###
 
