@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name             腾讯、乐视视频h5播放
 // @description      腾讯、乐视视频html5播放器
-// @version          0.2
+// @version          0.3
 // @author           Cloud
 // @namespace        https://github.com/kt286/TencentVideo-LeTV-HTML5Play
 // @homepageURL      https://github.com/kt286/TencentVideo-LeTV-HTML5Play
 // @supportURL       https://github.com/kt286/TencentVideo-LeTV-HTML5Play/issues
 // @updateURL        https://raw.githubusercontent.com/kt286/TencentVideo-LeTV-HTML5Play/master/TencentVideo-LeTV-HTML5Play.user.js
 // @include          *://v.qq.com/*
+// @include          *://y.qq.com/*
 // @include          *://film.qq.com/*
 // @include          *://view.inews.qq.com/*
 // @include          *://www.le.com/*
@@ -39,4 +40,6 @@ if(location.hostname=="www.le.com"){
             return { length: 0 };
         }
     });
+    //适配QQ音乐MV
+    localStorage.setItem("txp-user-setting","{\"isUseFlash\":\"0\"}");
 }
