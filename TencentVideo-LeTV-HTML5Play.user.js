@@ -48,9 +48,11 @@ if (host == "www.le.com") {
     localStorage.setItem('panda.tv/user/setting', '{"forbid_chat_gift":"1","ftq_flash_show":"0","ftq_room_notice":"0","color_speak_card":"0","forbid_flash_gift":"0","chat_msg_color":"","forbid_chat_notice":"1","cate_sort":""}');
     // 关闭弹幕
     window.WebSocket = function() {};
-    document.querySelector(".h5player-control-bar-danmu").click();
-    document.querySelector(".h5player-control-bar-fullscreen").click();
-    document.querySelector(".room-chat-expand-btn").click();
+    window.onload = () => {
+        document.querySelector(".h5player-control-bar-danmu").click();
+        document.querySelector(".h5player-control-bar-fullscreen").click();
+        document.querySelector(".room-chat-expand-btn").click();
+    }
 } else if (host.indexOf("acfun.cn") != -1 || host.indexOf("acfun.tv") != -1 || host.indexOf("aixifan.com") != -1) {
     window.onload = () => {
         var h5script = document.createElement('script');
