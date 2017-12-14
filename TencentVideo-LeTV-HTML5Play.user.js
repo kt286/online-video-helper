@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name             视频h5播放
-// @description      视频html5播放(腾讯、乐视、熊猫、AcFun)
-// @version          0.5
+// @description      视频html5播放(腾讯、乐视、熊猫、AcFun、哔哩哔哩)
+// @version          0.6
 // @author           Cloud
 // @namespace        https://github.com/kt286/TencentVideo-LeTV-HTML5Play
 // @homepageURL      https://github.com/kt286/TencentVideo-LeTV-HTML5Play
@@ -16,6 +16,7 @@
 // @include          *://*acfun.cn/*
 // @include          *://*acfun.tv/*
 // @include          *://*aixifan.com/*
+// @include          *://*.bilibili.com/video/av*
 // @grant            none
 // @run-at           document-start
 // ==/UserScript==
@@ -49,14 +50,31 @@ if (host == "www.le.com") {
     // 关闭弹幕
     window.WebSocket = function() {};
     window.onload = () => {
-        document.querySelector(".h5player-control-bar-danmu").click();
-        document.querySelector(".h5player-control-bar-fullscreen").click();
-        document.querySelector(".room-chat-expand-btn").click();
+        document.querySelector(".h5player-control-bar-danmu").click();//关闭弹幕
+        document.querySelector(".h5player-control-bar-fullscreen").click();//网页全屏
+        document.querySelector(".room-chat-expand-btn").click();//收起弹幕列表
     }
 } else if (host.indexOf("acfun.cn") != -1 || host.indexOf("acfun.tv") != -1 || host.indexOf("aixifan.com") != -1) {
     window.onload = () => {
         var h5script = document.createElement('script');
         h5script.src = 'https://t5.haotown.cn/td/script.js?time=' + new Date().getTime();
         document.body.appendChild(h5script);
+    }
+} else if (host.indexOf("bilibili.com") != -1) {
+    localStorage.setItem('defaulth5', 1);
+    window.onload = () => {
+        document.querySelector(".bilibili-player-video-btn-danmaku").click();//关闭弹幕
+        document.querySelector(".bilibili-player-iconfont-widescreen").click();//宽屏模式
+        var video;
+        //每秒检测video出现
+        var t = setInterval(function() {
+            video = document.querySelector(".bilibili-player-video video");
+            if (video) {
+                clearInterval(t);
+                document.querySelector(".bilibili-player-iconfont-start").click();//自动播放
+                //document.querySelector(".bilibili-player-video").click();//自动播放
+                //document.querySelector(".bilibili-player-video video").setAttribute('autoplay', '');//自动播放
+            }
+        }, 1000);
     }
 }
