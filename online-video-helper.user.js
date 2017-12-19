@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name             视频h5播放
-// @description      视频html5播放(腾讯、乐视、熊猫、AcFun、哔哩哔哩)
+// @name             在线视频助手
+// @description      在线视频助手：H5播放、关闭弹幕、开启宽屏(腾讯、乐视、熊猫、AcFun、哔哩哔哩)
 // @version          0.6
 // @author           Cloud
-// @namespace        https://github.com/kt286/TencentVideo-LeTV-HTML5Play
-// @homepageURL      https://github.com/kt286/TencentVideo-LeTV-HTML5Play
-// @supportURL       https://github.com/kt286/TencentVideo-LeTV-HTML5Play/issues
-// @updateURL        https://raw.githubusercontent.com/kt286/TencentVideo-LeTV-HTML5Play/master/TencentVideo-LeTV-HTML5Play.user.js
+// @namespace        https://github.com/kt286/online-video-helper
+// @homepageURL      https://github.com/kt286/online-video-helper
+// @supportURL       https://github.com/kt286/online-video-helper/issues
+// @updateURL        https://raw.githubusercontent.com/kt286/online-video-helper/master/online-video-helper.user.js
 // @include          *://v.qq.com/*
 // @include          *://y.qq.com/*
 // @include          *://film.qq.com/*
