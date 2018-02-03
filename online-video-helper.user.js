@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name             在线视频助手
-// @description      在线视频助手：H5播放、关闭弹幕、开启宽屏(腾讯、乐视、熊猫、AcFun、哔哩哔哩)
-// @version          0.6
+// @description      在线视频助手：H5播放、关闭弹幕、开启宽屏(腾讯、乐视、熊猫、AcFun、哔哩哔哩、爱奇艺)
+// @version          0.7
 // @author           Cloud
 // @namespace        https://github.com/kt286/online-video-helper
 // @homepageURL      https://github.com/kt286/online-video-helper
@@ -17,6 +17,7 @@
 // @include          *://*acfun.tv/*
 // @include          *://*aixifan.com/*
 // @include          *://*.bilibili.com/video/av*
+// @include          *://*.iqiyi.com/*
 // @grant            none
 // @run-at           document-start
 // ==/UserScript==
@@ -76,5 +77,14 @@ if (host == "www.le.com") {
                 //document.querySelector(".bilibili-player-video video").setAttribute('autoplay', '');//自动播放
             }
         }, 1000);
+    }
+} else if (host.indexOf("iqiyi.com") != -1) {
+    //disPlugins();
+    document.cookie.lplayer_forcedType='h5_VOD';
+    // 关闭弹幕
+    window.WebSocket = function() {};
+    window.onload = () => {
+        //document.querySelector(".danmu-close .switch").click();//关闭弹幕
+        document.querySelector("[data-player-hook='webfullscreen']").click();//网页全屏
     }
 }
