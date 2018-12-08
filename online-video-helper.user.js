@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name             在线视频助手
 // @description      在线视频助手：H5播放、关闭弹幕、开启宽屏(腾讯、乐视、熊猫、AcFun、哔哩哔哩、爱奇艺)
-// @version          0.7
+// @version          0.8
 // @author           Cloud
 // @namespace        https://github.com/kt286/online-video-helper
 // @homepageURL      https://github.com/kt286/online-video-helper
@@ -46,8 +46,8 @@ if (host == "www.le.com") {
     localStorage.setItem('txp-user-setting', '{"isUseFlash":"0"}');
 } else if (host.indexOf("www.panda.tv") != -1) {
     disPlugins();
-    localStorage.setItem('panda.tv/user/player', '{"useH5player":true}');
-    localStorage.setItem('panda.tv/user/setting', '{"forbid_chat_gift":"1","ftq_flash_show":"0","ftq_room_notice":"0","color_speak_card":"0","forbid_flash_gift":"0","chat_msg_color":"","forbid_chat_notice":"1","cate_sort":""}');
+    localStorage.setItem('panda.tv/user/player-model-controller', '{"player_model":"2"}'); //清爽模式（）
+    localStorage.setItem('panda.tv/user/H5player-danmu-controller', '{"danmu_open":"0","danmu_position":"1","danmu_opacity":"1"}');// 关闭弹幕
     // 关闭弹幕
     window.WebSocket = function() {};
     window.onload = () => {
