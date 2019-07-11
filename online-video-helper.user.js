@@ -29,7 +29,7 @@ const fakeUA = ua => Object.defineProperty(navigator, "userAgent", {
     enumerable: true
 });
 const disPlugins = () => Object.defineProperty(navigator, 'plugins', {
-    get: function() {
+    get: function () {
         return {
             length: 0
         };
@@ -57,7 +57,7 @@ if (host == "www.le.com") {
         document.querySelector(".bilibili-player-iconfont-widescreen").click(); //宽屏模式
         var video;
         //每秒检测video出现
-        var t = setInterval(function() {
+        var t = setInterval(function () {
             video = document.querySelector(".bilibili-player-video video");
             if (video) {
                 clearInterval(t);
@@ -65,52 +65,51 @@ if (host == "www.le.com") {
                 //document.querySelector(".bilibili-player-video").click();//自动播放
                 //document.querySelector(".bilibili-player-video video").setAttribute('autoplay', '');//自动播放
             }
-        },
-        1000);
+        }, 1000);
     }
 } else if (host.indexOf("iqiyi.com") != -1) {
     //disPlugins();
     document.cookie.lplayer_forcedType = 'h5_VOD';
     // 关闭弹幕
-    window.WebSocket = function() {};
+    window.WebSocket = function () { };
     window.onload = () => {
         //document.querySelector(".danmu-close .switch").click();//关闭弹幕
         document.querySelector("[data-player-hook='webfullscreen']").click(); //网页全屏
     }
 } else if (host.indexOf("youku.com") != -1) {
     window.onload = () => {
-        const webfullscreenbtn = '\
-        <div data-tip="网页全屏" class="control-icon control-fullscreen-icon control-webfullscreen-icon">\
-             <span class="iconfont icon-quanping_normal"></span>\
-        </div>';
-        const webhalfscreenbtn = '\
-        <div data-tip="退出网页全屏" class="control-icon control-halfscreen-icon control-webhalfscreen-icon" style="display:none;">\
-             <span class="iconfont icon-tuichuquanping_normal"></span>\
-        </div>';
-        const webfullscreenstyle = '\
-        <style>\
-            .webfullscreen {\
-                position: fixed;\
-                z-index: 100000;\
-                left: 0;\
-                top: 0;\
-                width: 100%;\
-                height: 100%;\
-            }\
-        </style>';
+        const webfullscreenbtn = `
+        <div data-tip="网页全屏" class="control-icon control-fullscreen-icon control-webfullscreen-icon">
+             <span class="iconfont icon-quanping_normal"></span>
+        </div>`;
+        const webhalfscreenbtn = `
+        <div data-tip="退出网页全屏" class="control-icon control-halfscreen-icon control-webhalfscreen-icon" style="display:none;">
+             <span class="iconfont icon-tuichuquanping_normal"></span>
+        </div>`;
+        const webfullscreenstyle = `
+        <style>
+            .webfullscreen {
+                position: fixed;
+                z-index: 100000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>`;
         $(".h5player-dashboard .control-right-grid").append(webfullscreenbtn);
         $(".h5player-dashboard .control-right-grid").append(webhalfscreenbtn);
         $("head").append(webfullscreenstyle);
 
         // 网页全屏
-        $(".control-webfullscreen-icon").click(function() {
+        $(".control-webfullscreen-icon").click(function () {
             $(".control-webhalfscreen-icon").css("display", "inline-block");
             $(".control-webfullscreen-icon").css("display", "none");
             $(".youku-player").toggleClass("webfullscreen");
         });
 
         // 退出网页全屏
-        $(".control-webhalfscreen-icon").click(function() {
+        $(".control-webhalfscreen-icon").click(function () {
             $(".control-webfullscreen-icon").css("display", "inline-block");
             $(".control-webhalfscreen-icon").css("display", "none");
             $(".youku-player").toggleClass("webfullscreen");
