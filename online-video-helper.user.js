@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name             在线视频助手
 // @description      在线视频助手：H5播放、关闭弹幕、开启宽屏
-// @version          0.9
+// @version          1.0
 // @author           Cloud
 // @namespace        https://github.com/kt286/online-video-helper
 // @homepageURL      https://github.com/kt286/online-video-helper
@@ -77,15 +77,14 @@ if (host.indexOf("bilibili.com") != -1) {
     meta.content = "no-referrer";
     document.getElementsByTagName('head')[0].appendChild(meta);
 
-    GM_addStyle(".MacPlayer { padding:0!important }");
+    GM_addStyle(".MacPlayer { padding:0!important; z-index:999!important; }");
 
     // need block 438kan.com/static/player/dplayer.js
     var dplayer = new DPlayer({
         element: document.querySelector(".MacPlayer"),
         autoplay: true,
         video: {
-            url: MacPlayer.PlayUrl,
-            type: 'hls',
+            url: MacPlayer.PlayUrl
         }
     });
 }
