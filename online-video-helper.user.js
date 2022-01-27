@@ -10,9 +10,8 @@
 // @include          *://*.bilibili.com/video/*
 // @include          *://*.438kan.com/*
 // @include          *://438kan.com/*
-// @grant            none
 // @require          https://cdn.jsdelivr.net/npm/hls.js@1.1.3/dist/hls.min.js
-// @require          https://cdn.bootcss.com/dplayer/1.26.0/DPlayer.min.js
+// @require          https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js
 // @grant            GM_addStyle
 // @run-at           document-end
 // ==/UserScript==
